@@ -1,0 +1,17 @@
+-
+  name: block example
+  hosts: target2
+  tasks:
+    - block:
+       # execute it noremally
+       - debug: msg='I execute normally'
+       # Force a failure
+       - command: /bin/false
+       # Never print this
+       - debug: msg='I never execute, due to the above task failing'
+      rescue:
+        # Print when errors
+       - debug: msg='I caught an error, can do stuff here to fix it, :-)'
+      always:
+         # Always do this
+       - debug: msg="This always executes"

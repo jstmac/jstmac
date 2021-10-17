@@ -1,0 +1,23 @@
+-
+  name: Installings My Sql on traget
+  hosts: target1
+  become: yes
+  tasks:
+    - name: download the url
+      get_url:
+        url: https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+        dest: /etc/MySQLrepo
+    - name: locating
+      command: cd /etc/MySQLrep'
+    - name: Install Mysql
+    - name: mysqld
+      command: install mysql-server
+    - name: Make sure MYsql service is running
+      service:
+        name: mysqld
+        state: started
+        enabled: True
+    - name: Install Python 3
+      yum:
+        name: python2-PyMySQL.noarch
+        state: present

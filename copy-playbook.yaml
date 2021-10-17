@@ -1,0 +1,9 @@
+-
+  name: copy job
+  hosts: all
+  tasks:
+    -
+      name: copy_jon
+      copy:
+        src: /home/osboxes/ansible-demo/exercise-0/randomtxt.txt
+        dest: /home/osboxes/randomtxt.txt
